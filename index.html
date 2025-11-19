@@ -26,6 +26,38 @@
         },
       }
     </script>
+    <style>
+      @media print {
+        @page { margin: 0; size: auto; }
+        body {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+          background: white;
+        }
+        body * {
+          visibility: hidden;
+        }
+        .printable-area, .printable-area * {
+          visibility: visible;
+        }
+        .printable-area {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: auto;
+          background: white;
+          z-index: 9999;
+          padding: 0;
+          margin: 0;
+          transform: none !important;
+          box-shadow: none !important;
+        }
+        .no-print {
+          display: none !important;
+        }
+      }
+    </style>
   <script type="importmap">
 {
   "imports": {
@@ -35,7 +67,9 @@
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5"
+    "xlsx": "https://aistudiocdn.com/xlsx@^0.18.5",
+    "html2canvas": "https://esm.sh/html2canvas@1.4.1",
+    "jspdf": "https://esm.sh/jspdf@2.5.1"
   }
 }
 </script>

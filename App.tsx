@@ -22,8 +22,8 @@ const MOCK_TENANTS: Tenant[] = [
 ];
 
 const MOCK_INVOICES: Invoice[] = [
-    { id: 'i1', unitId: '1', tenantName: 'علی محمدی', amount: 8000000, date: '1402/10/01', dueDate: '1402/10/05', isPaid: true, type: 'RENT', description: '' },
-    { id: 'i2', unitId: '3', tenantName: 'زهرا رضایی', amount: 9500000, date: '1402/10/01', dueDate: '1402/10/05', isPaid: false, type: 'RENT', description: '' },
+    { id: 'i1', unitId: '1', tenantName: 'علی محمدی', tenantId: 't1', amount: 8000000, date: '1402/10/01', dueDate: '1402/10/05', isPaid: true, type: 'RENT', description: '' },
+    { id: 'i2', unitId: '3', tenantName: 'زهرا رضایی', tenantId: 't2', amount: 9500000, date: '1402/10/01', dueDate: '1402/10/05', isPaid: false, type: 'RENT', description: '' },
 ];
 
 const MOCK_MAINTENANCE: MaintenanceRecord[] = [
@@ -68,11 +68,11 @@ function App() {
       case 'TENANTS':
         return <TenantManager tenants={tenants} setTenants={setTenants} />;
       case 'INVOICES':
-        return <InvoiceManager invoices={invoices} setInvoices={setInvoices} units={units} />;
+        return <InvoiceManager invoices={invoices} setInvoices={setInvoices} units={units} tenants={tenants} />;
       case 'MAINTENANCE':
         return <MaintenanceManager records={maintenanceRecords} setRecords={setMaintenanceRecords} />;
       case 'REPORTS':
-        return <InvoiceManager invoices={invoices} setInvoices={setInvoices} units={units} />;
+        return <InvoiceManager invoices={invoices} setInvoices={setInvoices} units={units} tenants={tenants} />;
       case 'AI_ASSISTANT':
         return <AIAssistant invoices={invoices} units={units} />;
       default:

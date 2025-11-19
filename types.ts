@@ -28,6 +28,7 @@ export interface Invoice {
   id: string;
   unitId: string;
   tenantName: string;
+  tenantId?: string;
   amount: number;
   date: string; // ISO string
   dueDate: string; // ISO string
